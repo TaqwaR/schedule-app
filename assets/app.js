@@ -9,33 +9,42 @@
     messagingSenderId: "555797784536"
   };
 
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 
+//Initial Value
+var input = {};
 
 //variable to reference database
 var database = firebase.database();
 
-//Initial Values
-var name = "";
-var destination = "";
-var time = "";
-var frequency = 0;
-
-
 function saveToFirebase() {
-
   event.preventDefault();
 
-  name = $('#name-input').val().trim();
-  destination = $('#dest-input').val().trim();
-  time = $('#time-input').val().trim();
-  frequency = $('#freq-input').val().trim();
+  input.name = $('#name-input').val().trim();
+  input.destination = $('#dest-input').val().trim();
+  input.time = $('#time-input').val().trim();
+  input.frequency = $('#freq-input').val().trim();
 
-  
+  database.ref().push({
+    name: input.name,
+    destination: input.destination,
+    time: input.time,
+    frequency: input.frequency
+  });
+
+};
+
+database.ref().on("value", function(snapshot) {
+
+  $('#name-input').text('<p>' + snapshot.val().name + '</p>');
+  $('#dest-input').text('<p>' + snapshot.val().destination + '</p>');
+  $('#time-input').text('<p>' + snapshot.val().time + '</p>');
+  $('#freq-input').text('<p>' + snapshot.val().frequency + '</p>');
+},
+
+function(errorObject) {
+      console.log("Errors handled: " + errorObject.code);
+    });
 
 
-}
-
-$(".submit-btn").click(function(event) {
-  /* Act on the event */
-});
+$(".submit-btn").click(saveToFirebase);
