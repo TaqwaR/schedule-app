@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Real Time Schedule</title>
+
+  <link rel="stylesheet" href="./assets/reset.css">
+  <link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://v4-alpha.getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/styles.css">
+  <script src="http://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+</head>
+
+<body>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Tracker</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+
+  <div class="container my-container">
+    <div class="row current-schd">
+      <h5>Current Schedule</h5>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <h6>Train Name</h6>
+      </div>
+      <div class="col-md-2">
+        <h6>Destination</h6>
+      </div>
+      <div class="col-md-2">
+        <h6>Frequency</h6>
+      </div>
+      <div class="col-md-2">
+        <h6>Next Arrival</h6>
+      </div>
+      <div class="col-md-3">
+        <h6>Minutes Away</h6>
+      </div>
+    </div>
+    <div class="row add-to">
+      <h5>Add</h5>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <form>
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" id="name-input" placeholder="text">
+          </div>
+        </form>
+      </div>
+      <div class="col-md-12">
+        <form>
+          <div class="form-group">
+            <label>Destination</label>
+            <input type="text" class="form-control" id="dest-input" placeholder="text">
+          </div>
+        </form>
+      </div>
+      <div class="col-md-12">
+        <form>
+          <div class="form-group">
+            <label>First Time</label>
+            <input type="text" class="form-control" id="time-input" placeholder="text">
+          </div>
+        </form>
+      </div>
+      <div class="col-md-12">
+        <form>
+          <div class="form-group">
+            <label>Frequency (min)</label>
+            <input type="text" class="form-control" id="freq-input" placeholder="text">
+          </div>
+        </form>
+      </div>
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+      </div>
+    </div>
+
+    <hr>
+
+    <footer>
+      <p>© Taqwa Rushdan 2018</p>
+    </footer>
+  </div>
+  <!-- /container -->
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="http://v4-alpha.getbootstrap.com/assets/js/vendor/jquery.min.js"></script>
+  <script src="http://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js"></script>
+  <script src="./assets/app.js"></script>
+
+
+</body>
+
+</html>

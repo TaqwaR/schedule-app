@@ -1,0 +1,26 @@
+
+.my-container {
+  width: 60%;
+}
+
+.current-schd {
+  padding-top: 3em;
+}
+
+.current-schd h5 {
+  background-color: purple;
+  color: white;
+  padding: 0.5em;
+  padding-right: 30em;
+}
+
+.add-to {
+  padding-top: 3em;
+}
+
+.add-to h5 {
+  background-color: purple;
+  color: white;
+  padding: 0.5em;
+  padding-right: 36em;
+}
