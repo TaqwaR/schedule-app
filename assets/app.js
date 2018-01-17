@@ -20,11 +20,13 @@ var database = firebase.database();
 function saveToFirebase() {
   event.preventDefault();
 
+  //stores user input from HTML
   input.name = $('#name-input').val().trim();
   input.destination = $('#dest-input').val().trim();
   input.time = $('#time-input').val().trim();
   input.frequency = $('#freq-input').val().trim();
 
+  //uploads input data to database
   database.ref().push({
     name: input.name,
     destination: input.destination,
@@ -32,14 +34,21 @@ function saveToFirebase() {
     frequency: input.frequency
   });
 
+//testing
+  console.log(input.name);
+  console.log(input.destination);
+  console.log(input.time);
+  console.log(input.frequency);
 };
 
-database.ref().on("value", function(snapshot) {
+database.ref().on("child_added", function(snapshot) {
 
-  $('#name-input').text('<p>' + snapshot.val().name + '</p>');
-  $('#dest-input').text('<p>' + snapshot.val().destination + '</p>');
-  $('#time-input').text('<p>' + snapshot.val().time + '</p>');
-  $('#freq-input').text('<p>' + snapshot.val().frequency + '</p>');
+  console.log(snapshot.val());
+
+  $('#name-input').append('<p>' + snapshot.val().name + '</p>');
+  $('#dest-input').append('<p>' + snapshot.val().destination + '</p>');
+  $('#time-input').append('<p>' + snapshot.val().time + '</p>');
+  $('#freq-input').append('<p>' + snapshot.val().frequency + '</p>');
 },
 
 function(errorObject) {
