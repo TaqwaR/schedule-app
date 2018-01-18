@@ -45,10 +45,10 @@ database.ref().on("child_added", function(snapshot) {
 
   console.log(snapshot.val());
 
-  $('#name-input').append('<p>' + snapshot.val().name + '</p>');
-  $('#dest-input').append('<p>' + snapshot.val().destination + '</p>');
-  $('#time-input').append('<p>' + snapshot.val().time + '</p>');
-  $('#freq-input').append('<p>' + snapshot.val().frequency + '</p>');
+  $('.train-name').append('<p>' + snapshot.val().name + '</p>');
+  $('.destination').append('<p>' + snapshot.val().destination + '</p>');
+  $('.next-arrival').append('<p>' + snapshot.val().time + '</p>');
+  $('.frequency').append('<p>' + snapshot.val().frequency + '</p>');
 },
 
 function(errorObject) {
