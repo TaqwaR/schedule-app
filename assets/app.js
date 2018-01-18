@@ -1,5 +1,5 @@
 
-// Initialize Firebase
+/////////Initialize Firebase
   var config = {
     apiKey: "AIzaSyDHYzfhNrGg8mVb6J2oFqlbAbMstd_1EJk",
     authDomain: "schedule-app-2dc62.firebaseapp.com",
@@ -11,10 +11,10 @@
 
 firebase.initializeApp(config);
 
-//Initial Value
+/////////Initial Value
 var input = {};
 
-//variable to reference database
+//////////Variable to reference database
 var database = firebase.database();
 
 function saveToFirebase() {
@@ -26,7 +26,7 @@ function saveToFirebase() {
   input.time = $('#time-input').val().trim();
   input.frequency = $('#freq-input').val().trim();
 
-  //uploads input data to database
+  /////uploads input data to database
   database.ref().push({
     name: input.name,
     destination: input.destination,
@@ -34,12 +34,29 @@ function saveToFirebase() {
     frequency: input.frequency
   });
 
-//testing
+////////testing
   console.log(input.name);
   console.log(input.destination);
   console.log(input.time);
   console.log(input.frequency);
 };
+
+///////////Number validator
+  var inputNumber;
+
+function freqNumValidator(inputNumber) {
+
+  inputNumber = $('#freq-input').val().trim();
+
+  if (Number.isNaN(inputNumber)) {
+    alert('Please enter a number');
+    inputNumber = $('#freq-input').val("");
+  }
+
+}
+
+freqNumValidator();
+
 
 database.ref().on("child_added", function(snapshot) {
 
@@ -47,13 +64,17 @@ database.ref().on("child_added", function(snapshot) {
 
   $('.train-name').append('<p>' + snapshot.val().name + '</p>');
   $('.destination').append('<p>' + snapshot.val().destination + '</p>');
-  $('.next-arrival').append('<p>' + snapshot.val().time + '</p>');
+  //$('.next-arrival').append('<p>' + snapshot.val().time + '</p>');
   $('.frequency').append('<p>' + snapshot.val().frequency + '</p>');
-},
+  },
 
-function(errorObject) {
+  function(errorObject) {
       console.log("Errors handled: " + errorObject.code);
-    });
+  }
+
+
+
+  );
 
 
 $(".submit-btn").click(saveToFirebase);
